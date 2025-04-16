@@ -1,46 +1,28 @@
 #include <iostream>
-#include<cmath>
+#include <cmath>
 using namespace std;
 
-bool CheckPrimeNumber(int n){
+int main() {
+    int minNum, maxNum, minPrimeNum = 0, total = 0;
+    cin >> minNum >> maxNum;
 
-    for(int i = 2; i <= sqrt(n); i++){
-        if(n % i == 0){
-            return false;
+    auto isPrime = [](int n) {
+        for (int i = 2; i <= sqrt(n); i++)
+            if (n % i == 0) return false;
+        return true;
+    };
+
+    for (int i = max(minNum, 2); i <= maxNum; i++) {
+        if (isPrime(i)) {
+            if (!minPrimeNum) minPrimeNum = i;
+            total += i;
         }
     }
-    return true;
-}
 
-
-int main()
-{
-    
-    int minNum, maxNum;
-    int minPrimeNum = 0, total = 0;
-    
-    cin >> minNum >> maxNum;
-    
-    if(minNum < 2){
-        minNum = 2;
-    }
-    
-    for(int i = minNum; i <= maxNum; i++){
-        if(CheckPrimeNumber(i)){
-            if(minPrimeNum == 0){
-                minPrimeNum = i;
-            }
-            total += i;
-        } 
-    }
-    
-    if(total == 0){
-        cout << -1 << endl;
-    }
-    else{
-        cout << total << endl;
-        cout << minPrimeNum << endl;
-    }
+    if (!total)
+        cout << -1 << '\n';
+    else
+        cout << total << '\n' << minPrimeNum << '\n';
 
     return 0;
 }
