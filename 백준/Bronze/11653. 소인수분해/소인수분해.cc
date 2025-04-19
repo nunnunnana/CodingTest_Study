@@ -2,24 +2,15 @@
 using namespace std;
 
 int main() {
-    int input;
+    int n;
+    cin >> n;
     
-    cin >> input;
-    int i = 2;
-    
-    while(1){
-
-        if(input % i == 0){
-            input /= i;
+    for (int i = 2; 1 < n; i++) {
+        while (n % i == 0) {
             cout << i << '\n';
-            i = 2;
-        }
-        else i++;
-        
-        if(input == 1){
-            break;
+            n /= i;
         }
     }
-    
+
     return 0;
 }
