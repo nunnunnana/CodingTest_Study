@@ -1,24 +1,18 @@
 #include <iostream>
 using namespace std;
 
-int GetGCD(int a, int b) {
-    if (b == 0) 
-        return a;
-    else 
-        return GetGCD(b, a % b);
+int GCD(int a, int b) {
+    return b ? GCD(b, a % b) : a;
 }
 
-int main()
-{
+int main() {
     int a, b;
-    int gcd, lcm;
     
     cin >> a >> b;
     
-    gcd = GetGCD(a, b);
-    lcm = (a * b) / gcd;
+    int gcd = GCD(a, b);
     
-    cout << gcd << '\n' << lcm;
+    cout << gcd << '\n' << (a * b) / gcd;
     
     return 0;
 }
