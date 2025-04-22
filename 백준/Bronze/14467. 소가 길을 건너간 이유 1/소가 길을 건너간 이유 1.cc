@@ -1,28 +1,22 @@
 #include <iostream>
-#include <algorithm>
 using namespace std;
 
 int main()
 {
-    int observe, cowNum, location, count = 0;
-    int arrNum[10];
+    int n, cow, pos, count = 0;
+    int state[11] = {-1};
+    fill(state + 1, state + 11, -1);
     
-    cin >> observe;
-    
-    fill(arrNum, arrNum + 10, -1);
-    
-    for(int i = 0; i < observe; i++){
-        cin >> cowNum >> location;
-        
-        if(arrNum[cowNum - 1] == -1)
-            arrNum[cowNum - 1] = location;
-        else if(arrNum[cowNum - 1] != location){
-            arrNum[cowNum - 1] = location;
+    cin >> n;
+    for(int i = 0; i < n; i++){
+        cin >> cow >> pos;
+        if (state[cow] == -1) state[cow] = pos;
+        else if (state[cow] != pos) {
+            state[cow] = pos;
             count++;
         }
     }
     
     cout << count;
-
     return 0;
 }
