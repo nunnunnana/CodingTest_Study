@@ -1,43 +1,37 @@
 #include <iostream>
 using namespace std;
 
+bool isVowel(char c){
+    return string("aeiou").find(c) != string::npos;
+}
+
+
 int main()
 {
-    string password;
+    string pw;
     
-    while(1){
-        cin >> password;
+    while(cin >> pw && pw != "end"){
+        bool hasVowel = false;
+        int v = 0, c = 0, count = 0;
+        char prev = 0;
         
-        if(password == "end") break;
-        
-        int a = 0, b = 0;
-        bool isGather = false;
-        int count = 0;
-        char preWord = 0;
-        
-        for(int i = 0; i < password.size(); i++){
-            if(password[i] == 'a' || password[i] == 'e' || password[i] == 'i' || password[i] == 'o' || password[i] == 'u'){
-                isGather = true;
-                a++;
-                if(a == 3) count++;
-                b = 0;
+        for(char ch : pw){
+            if(isVowel(ch)){
+                hasVowel = true;
+                v++;
+                c = 0;
             }
             else{
-                b++;
-                if(b == 3) count++;
-                a = 0;
-            }
-            if(password[i] == preWord && password[i] != 'e' && password[i] != 'o'){
-                count++;
+                c++;
+                v = 0;
             }
             
-            preWord = password[i];
+            if(v == 3 || c == 3) count++;
+            if(ch == prev && ch != 'e' && ch != 'o') count++;
+            
+            prev = ch;
         }
-        
-        if(isGather == true && count < 1){
-            cout << '<' << password << '>'  << " is acceptable." << '\n';
-        }
-        else cout << '<' << password << '>'  << " is not acceptable." << '\n';
+        cout << '<' << pw << "> is "  << (hasVowel && count == 0 ? "acceptable." : "not acceptable.") << '\n';
     }
 
     return 0;
