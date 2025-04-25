@@ -3,27 +3,24 @@ using namespace std;
 
 int main()
 {
-    int N = 0;
-    int index = 0;
-    int count = 0;
     string input;
-    
     cin >> input;
-    
-    while(1){
+
+    int idx = 0;
+    int N = 0;
+
+    while (idx < input.size()) {
         N++;
         string s = to_string(N);
-        for(char ch : s){
-            if(ch == input[index]){
-                index++;
-                count++;
+
+        for (char c : s) {
+            if (c == input[idx]) {
+                idx++;
+                if (idx == input.size()) break;
             }
         }
-        
-        if(count == input.size()) break;
-
     }
-    cout << N;
 
+    cout << N;
     return 0;
 }
