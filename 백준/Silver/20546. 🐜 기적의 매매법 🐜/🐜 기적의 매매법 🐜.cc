@@ -3,58 +3,36 @@ using namespace std;
 
 int main()
 {
-    int cash;
-    int stockPrice[14];
-    int bnpCash, bnpStock = 0;
-    int timingCash, timingStock = 0;
-    int a, b;
+    int cash, price[14];
     
     cin >> cash;
-    bnpCash = cash;
-    timingCash = cash;
+    int bnpCash = cash, bnpStock = 0;
+    int timingCash = cash, timingStock = 0;
     
-    for(int& price : stockPrice){
-        cin >> price;
-    }
-    
-    int preStock = stockPrice[0];
+    for (int& p : price) cin >> p;
     
     for(int i = 0; i < 14; i++){
-        if(bnpCash >= stockPrice[i]){
-            bnpStock += bnpCash / stockPrice[i];
-            bnpCash %= stockPrice[i];
+        if(bnpCash >= price[i]){
+            bnpStock += bnpCash / price[i];
+            bnpCash %= price[i];
         }
-        if(preStock > stockPrice[i]){
-            b = 0;
-            a++;
-            if(a >= 3){
-                timingStock += timingCash / stockPrice[i];
-                timingCash %= stockPrice[i];
-            }
-        }
-        else if(preStock < stockPrice[i]){
-            a = 0;
-            b++;
-            if(b >= 3){
-                timingCash += timingStock * stockPrice[i];
+        if(i >= 3){
+            if (price[i-3] < price[i-2] && price[i-2] < price[i-1] && price[i-1] < price[i]) {
+                timingCash += timingStock * price[i];
                 timingStock = 0;
             }
+            if (price[i-3] > price[i-2] && price[i-2] > price[i-1] && price[i-1] > price[i]) {
+                timingStock += timingCash / price[i];
+                timingCash %= price[i];
+            }
         }
-        else if(preStock == stockPrice[i]){
-            a = 0;
-            b = 0;
-        }
-        preStock = stockPrice[i];
     }
     
-    int BNP = bnpCash + (bnpStock * stockPrice[13]);
-    int TIMING = timingCash + (timingStock * stockPrice[13]);
+    int bnp_total = bnpCash + (bnpStock * price[13]);
+    int timing_total = timingCash + (timingStock * price[13]);
     
-    if(BNP == TIMING){
-        cout << "SAMESAME";
-    }
-    else{
-        cout << (BNP > TIMING ? "BNP" : "TIMING");
-    }
+    if(bnp_total == timing_total) cout << "SAMESAME";
+    else cout << (bnp_total > timing_total ? "BNP" : "TIMING");
+
     return 0;
 }
