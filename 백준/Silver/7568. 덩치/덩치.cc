@@ -5,25 +5,16 @@ int main()
 {
     int n;
     cin >> n;
+    pair<int, int> p[n];
     
-    int x[n], y[n];
-    
-    for(int i = 0; i < n; i++){
-        cin >> x[i] >> y[i];
-    }
+    for(auto& [x, y] : p) cin >> x >> y;
     
     for(int i = 0; i < n; i++){
         int rank = 1;
-        for(int j = 0; j < n; j++){
-            if(i == j) continue;
-            if(y[j] > y[i] && x[j] > x[i]){
-                rank += 1;
-            }
-        }
+        for(int j = 0; j < n; j++)
+            if(p[j].first > p[i].first && p[j].second > p[i].second)
+                rank++;
         cout << rank << ' ';
     }
-    
-    
-
     return 0;
 }
