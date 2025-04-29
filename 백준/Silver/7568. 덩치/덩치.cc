@@ -1,0 +1,29 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int n;
+    cin >> n;
+    
+    int x[n], y[n];
+    
+    for(int i = 0; i < n; i++){
+        cin >> x[i] >> y[i];
+    }
+    
+    for(int i = 0; i < n; i++){
+        int rank = 1;
+        for(int j = 0; j < n; j++){
+            if(i == j) continue;
+            if(y[j] > y[i] && x[j] > x[i]){
+                rank += 1;
+            }
+        }
+        cout << rank << ' ';
+    }
+    
+    
+
+    return 0;
+}
