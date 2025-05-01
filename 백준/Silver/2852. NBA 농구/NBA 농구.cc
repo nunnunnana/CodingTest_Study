@@ -1,36 +1,32 @@
 #include <iostream>
 #include <iomanip>
-#include <string>
 using namespace std;
 
 int main()
 {
-    int goalCount, team, score1 = 0, score2 = 0;
-    int prevTime = 0, winTime1 = 0, winTime2 = 0;
-    string timer;
-    
+    int goalCount, team, s1 = 0, s2 = 0, prev = 0, t1 = 0, t2 = 0;
     cin >> goalCount;
     
     for(int i = 0; i < goalCount; i++){
+        string timer;
         cin >> team >> timer;
-        int currentTime = stoi(timer.substr(0, 2)) * 60 + stoi(timer.substr(3, 2));
-        if (score1 > score2) {
-            winTime1 += (currentTime - prevTime);
-        } else if (score2 > score1) {
-            winTime2 += (currentTime - prevTime);
-        }
-        if (team == 1) score1++;
-        else score2++;
-        prevTime = currentTime;
+        int curr = stoi(timer.substr(0, 2)) * 60 + stoi(timer.substr(3, 2));
+        
+        if (s1 > s2) t1 += curr - prev;
+        else if (s2 > s1) t2 += curr - prev;
+        
+        (team == 1 ? s1 : s2)++;
+        prev = curr;
     }
     
-    if (score1 > score2) {
-        winTime1 += (48*60 - prevTime);
-    } else if (score2 > score1) {
-        winTime2 += (48*60 - prevTime);
-    }
+    if (s1 > s2) t1 += 48 * 60 - prev;
+    else if (s2 > s1) t2 += 48 * 60 - prev;
     
-    cout << setfill('0') << setw(2) << winTime1 / 60 << ":" << setfill('0') << setw(2) << winTime1 % 60 << '\n';
-    cout << setfill('0') << setw(2) << winTime2 / 60 << ":" << setfill('0') << setw(2) << winTime2 % 60 << '\n';
+    auto printTime = [](int sec) {
+        cout << setfill('0') << setw(2) << sec / 60 << ":" << setfill('0') << setw(2) << sec % 60 << '\n';
+    };
+    
+    printTime(t1);
+    printTime(t2);
     return 0;
 }
