@@ -1,6 +1,5 @@
 #include <iostream>
 #include <stack>
-#include <string>
 using namespace std;
 
 int main()
@@ -10,23 +9,15 @@ int main()
     cin.ignore();
 
     for(int i = 0; i < n; i++){
-        string input = {};
-        getline(cin, input);
+        string s;
+        getline(cin, s);
         
-        stack<char> stack = {};
-        stack.push(input[0]);
-        
-        for(int j = 1; j < input.size(); j++){
-            if(!stack.empty() && stack.top() == input[j]){
-                stack.pop();
-            }
-            else{
-                stack.push(input[j]);
-            }
+        stack<char> stack;
+        for(char c : s){
+            if(!stack.empty() && stack.top() == c) stack.pop();
+            else stack.push(c);
         }
-        if(stack.empty()){
-            count++;
-        }
+        if(stack.empty()) count++;
     }
     
     cout << count;
