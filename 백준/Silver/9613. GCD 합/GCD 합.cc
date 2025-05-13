@@ -16,12 +16,11 @@ int main()
         cin >> n;
         
         vector<int> arr(n);
-        for(int j = 0; j < n; j++)
-            cin >> arr[j];
+        for (int& j : arr) cin >> j;
         
         long long sum = 0;
-        for(int a = 0; a < arr.size(); a++)
-            for(int b = a + 1; b < arr.size(); b++)
+        for(int a = 0; a < n - 1; a++)
+            for(int b = a + 1; b < n; b++)
                 sum += gcd(arr[a], arr[b]);
         
         cout << sum << '\n';
