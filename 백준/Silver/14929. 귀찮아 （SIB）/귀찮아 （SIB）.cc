@@ -7,20 +7,20 @@ int main()
     int n;
     cin >> n;
     
-    vector<int> a(n+1);
-    vector<int> s(n+1);
-    
-    for(int i = 1; i <= n; i++) {
-        cin >> a[i];
-        s[i] = s[i-1] + a[i];
+    long long total = 0;
+    vector<int> a(n);
+    for(int& i : a) {
+        cin >> i;
+        total += i;
     }
     
-    long long sum = 0;
-    for(int i = 1; i <= n; i++){
-        sum += a[i] * (s[n] - s[i]);
+    long long result = 0;
+    for(int i = 0; i < n - 1; i++){
+        total -= a[i];
+        result += a[i] * total;
     }
     
-    cout << sum << '\n';
+    cout << result << '\n';
     
     return 0;
 }
