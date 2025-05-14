@@ -12,24 +12,22 @@ int main()
     cin >> N;
     
     vector<int> arr(N);
-    for(int& i : arr){
-        cin >> i;
-    }
+    for(int& i : arr) cin >> i;
     
     int X;
     cin >> X;
     
     double sum = 0;
     int count = 0;
-    for(int i = 0; i < N; i++){
-        if(gcd(X, arr[i]) == 1){
-            sum += arr[i];
+    
+    for(const int i : arr){
+        if(gcd(X, i) == 1){
+            sum += i;
             count++;
         }
     }
     
     cout << sum / count << '\n';
-    
     
     return 0;
 }
