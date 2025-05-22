@@ -5,7 +5,6 @@ using namespace std;
 
 vector<vector<int>> graph;
 vector<vector<bool>> visited;
-vector<int> groupCounts;
 
 int n;
 int dx[4] = {-1, 1, 0, 0}; 
@@ -19,7 +18,7 @@ int dfs(int x, int y){
         int ny = y + dy[dir];
 
         if (nx >= 0 && nx < n && ny >= 0 && ny < n) {
-            if (!visited[nx][ny] && graph[nx][ny] == 1) {
+            if (!visited[nx][ny] && graph[nx][ny]) {
                 count += dfs(nx, ny);
             }
         }
@@ -34,6 +33,7 @@ int main()
     graph.resize(n, vector<int>(n));
     visited.resize(n, vector<bool>(n, false));
     
+    
     for(int i = 0; i < n; i++){
         string s;
         cin >> s;
@@ -42,11 +42,11 @@ int main()
         }
     }
     
+    vector<int> groupCounts;
     for(int i = 0; i < n; i++){
         for(int j = 0; j < n; j++){
-            if (!visited[i][j] && graph[i][j] == 1) {
-                int count = dfs(i, j);
-                groupCounts.push_back(count);
+            if (!visited[i][j] && graph[i][j]) {
+                groupCounts.push_back(dfs(i, j));
             }
         }
     }
