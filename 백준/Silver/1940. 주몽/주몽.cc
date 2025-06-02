@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <algorithm>
 using namespace std;
 
 int main() {
@@ -13,12 +14,18 @@ int main() {
     for(int i = 0; i < n; i++){
         cin >> a[i];
     }
+    
+    sort(a.begin(), a.end());
+    
+    int i = 0, j = n - 1;
 
-    for(int i = 0; i < n - 1; i++){
-        for(int j = i + 1; j < n; j++){
-            if(a[i] + a[j] == m){
-                count++;
-            }
+    while(j - i > 0){
+        if(a[i] + a[j] < m) i++;
+        else if(a[i] + a[j] > m) j--;
+        else if(a[i] + a[j] == m){
+            count++;
+            i++;
+            j--;
         }
     }
 
