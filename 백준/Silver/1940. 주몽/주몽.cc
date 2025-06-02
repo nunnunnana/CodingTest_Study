@@ -11,22 +11,21 @@ int main() {
     cin >> n >> m;
 
     vector<int> a(n);
-    for(int i = 0; i < n; i++){
-        cin >> a[i];
-    }
+    for(int& i : a) cin >> i;
+    
     
     sort(a.begin(), a.end());
     
     int i = 0, j = n - 1;
 
-    while(j - i > 0){
-        if(a[i] + a[j] < m) i++;
-        else if(a[i] + a[j] > m) j--;
-        else if(a[i] + a[j] == m){
+    while(i < j){
+        if(a[i] + a[j] == m){
             count++;
             i++;
             j--;
         }
+        else if(a[i] + a[j] < m) i++;
+        else j--;
     }
 
     cout << count;
