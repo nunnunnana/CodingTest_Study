@@ -11,25 +11,20 @@ int main()
     cin >> n >> x;
     
     vector<int> a(n);
-    for(int& i : a){
-        cin >> i;
-    }
+    for(int& i : a) cin >> i;
     
-    int result= 0;
-    int count = 1;
+    int sum = 0, count = 1;
+    for(int i = 0; i < x; i++) sum += a[i];
     
-    for(int i = 0; i < x; i++){
-        result += a[i];
-    }
-    int max = result;
-    for(int i = 0; i < n - x; i++){
-        result = result - a[i] + a[x + i];
+    int max = sum;
+    for(int i = x; i < n; i++){
+        sum += a[i] - a[i - x];
         
-        if(result > max) {
-            max = result;
+        if(sum > max) {
+            max = sum;
             count = 1;
         }
-        else if(result == max) count++;
+        else if(sum == max) count++;
     }
     
     if(max == 0) cout << "SAD";
