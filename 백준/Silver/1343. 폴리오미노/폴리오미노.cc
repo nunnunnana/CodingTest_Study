@@ -3,7 +3,7 @@ using namespace std;
 
 int main()
 {
-    string s, result = "";
+    string s, result;
     cin >> s;
     
     int count = 0;
@@ -13,8 +13,8 @@ int main()
                 cout << -1 << '\n';
                 return 0;
             }
-            result += string(count / 4 * 4, 'A');
-            result += string((count % 4) / 2 * 2, 'B');
+            result.append(count / 4 * 4, 'A');
+            result.append((count % 4) / 2 * 2, 'B');
             count = 0;
         }
         if(s[i] == '.') result += '.';
