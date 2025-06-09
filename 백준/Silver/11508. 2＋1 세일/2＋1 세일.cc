@@ -9,22 +9,14 @@ int main()
     cin >> n;
     
     vector<int> v(n);
-    for(int i = 0; i < n; i++){
-        cin >> v[i];
-    }
-    sort(v.begin(), v.end(), [](int a, int b){return a > b;});
+    for(int& i : v) cin >> i;
+    
+    sort(v.rbegin(), v.rend());
     
     int sum = 0;
-    int i = 0, count = 0;
-    while(i < n){
-        if(count == 2){
-            count = 0;
-            i++;
-            continue;
-        }
+    for(int i = 0; i < n; i++){
+        if(i % 3 == 2) continue;
         sum += v[i];
-        i++;
-        count++;
     }
     
     cout << sum;
