@@ -1,55 +1,22 @@
 #include <iostream>
-#include <vector>
-#include <stack>
 using namespace std;
 
 int main()
 {
-    string s;
+    string s, n;
     cin >> s;
     
-    stack<int> num;
-    stack<char> sign;
-    string n;
-    
+    int result = 0;
+    bool isMinus = false;
     for(int i = 0; i <= s.size(); i++){
-        if(s[i] == '+' || s[i] == '-') {
-            num.push((stoi(n)));
-            sign.push(s[i]);
-            n = "";
-            i++;
+        if(s[i] == '+' || s[i] == '-' || i == s.size()) {
+            result += isMinus ? -stoi(n) : stoi(n);
+            n.clear();
         }
-        else if(i == s.size()){
-            num.push((stoi(n)));
-            break;
-        }
-        n += s[i];
-    }
-    
-    int sum = 0, result = 0;
-    while(!num.empty()){
-        if(!sign.empty() && sign.top() == '+' ){
-            sum += num.top();
-            num.pop();
-            sign.pop();
-        }
-        else if(!sign.empty() && sign.top() == '-'){
-            sum += num.top();
-            result -= sum;
-            sum = 0;
-            num.pop();
-            sign.pop();
-        }
-        else{
-            sum += num.top();
-            result += sum;
-            num.pop();
-            break;
-        }
-        
+        if(s[i] == '-') isMinus = true;
+        else n += s[i];
     }
     
     cout << result;
-
     return 0;
 }
