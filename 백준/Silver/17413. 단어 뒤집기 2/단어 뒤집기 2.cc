@@ -7,33 +7,28 @@ int main()
     getline(cin, s);
 
     string n, result;
-    bool isPass = false;
-    for(int i = 0; i < s.size(); i++){
-        if(s[i] == '<'){
-            isPass = true;
-            for(int j = n.size() - 1; j >= 0; j--){
+    bool isTag = false;
+    for(char c : s){
+        if(c == '<'){
+            for(int j = n.size() - 1; j >= 0; j--)
                 result += n[j];
-            }
             n.clear();
-            result += s[i];
+            
+            isTag = true;
+            result += c;
         }
-        else if(s[i] == '>'){
-            isPass = false;
-            result += s[i];
+        else if(c == '>'){
+            isTag = false;
+            result += c;
         }
-        else if(isPass){
-            result += s[i];
-        }
-        else if(s[i] == ' '){
-            for(int j = n.size() - 1; j >= 0; j--){
-                result += n[j];
-            }
+        else if(isTag) result += c;
+        else if(c == ' '){
+            for(int i = n.size() - 1; i >= 0; i--)
+                result += n[i];
             n.clear();
             result += ' ';
         }
-        else{
-            n += s[i];
-        }
+        else n += c;
     }
     
     for(int j = n.size() - 1; j >= 0; j--){
