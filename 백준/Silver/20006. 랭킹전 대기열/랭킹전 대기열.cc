@@ -12,41 +12,31 @@ int main()
     int p, m;
     cin >> p >> m;
     
-    vector<pair<int, string>> v[p];
+    vector<vector<pair<int, string>>> v;
     for(int i = 0; i < p; i++){
         int lvl;
         string name;
         cin >> lvl >> name;
         
-        if(i == 0){
-            v[0].push_back({lvl, name});
-            continue;
-        }
-        
-        for (int j = 0; j < p; j++) {
-            if (!v[j].empty() && v[j].size() < m) {
-                if (lvl >= v[j][0].first - 10 && lvl <= v[j][0].first + 10) {
-                    v[j].push_back({lvl, name});
-                    break;
-                }
-            }
-            else if(v[j].empty()){
-                v[j].push_back({lvl, name});
+        bool placed = false;
+        for (auto& n : v) {
+            if (n.size() < m && abs(n[0].first - lvl) <= 10) {
+                n.emplace_back(lvl, name);
+                placed = true;
                 break;
             }
         }
+        
+        if (!placed) {
+            v.push_back({{lvl, name}});
+        }
     }
     
-    for(int i = 0; i < p; i++) {
-        sort(v[i].begin(), v[i].end(), compareSecond);
-    }
-    
-    for(int i = 0; i < p; i++) {
-        if(v[i].empty()) continue;
-        else if(v[i].size() == m) cout << "Started!" << '\n';
-        else cout << "Waiting!" << '\n';
-        for(int j = 0; j < v[i].size(); j++){
-            cout << v[i][j].first << " " << v[i][j].second << '\n';
+    for (auto& n : v) {
+        sort(n.begin(), n.end(), compareSecond);
+        cout << (n.size() == m ? "Started!" : "Waiting!") << '\n';
+        for (const auto& [lvl, name] : n) {
+            cout << lvl << ' ' << name << '\n';
         }
     }
 
