@@ -1,48 +1,22 @@
 #include <iostream>
-#include <vector>
-#include <queue>
+#include <map>
 #include <iomanip>
+#include <string>
 using namespace std;
 
 int main()
 {
-    ios_base :: sync_with_stdio(false);
-    cin.tie(NULL);
-    cout.tie(NULL);
-    
-    priority_queue<string, vector<string>, greater<string>> pq;
+    map<string, float> m;
     string s;
+    int total = 0;
     while(getline(cin, s)){
-        pq.push(s);
+        m[s]++;
+        total++;
     }
     
-    float size = pq.size();
-    string preStr = pq.top();
-    pq.pop();
-    
-    float count = 1.0f;
-    vector<pair<string, float>> v;
-    while(!pq.empty()){
-        if(preStr == pq.top()){
-            count += 1.0f;
-            pq.pop();
-            continue;
-        }
-        float ratio = (count / size) * 100.0f;
-        v.push_back({preStr, ratio});
-        
-        if(!pq.empty()){
-            preStr = pq.top();
-            pq.pop();
-            count = 1.0f;
-        }
-    }
-    
-    float ratio = (count / size) * 100.0f;
-    v.push_back({preStr, ratio});
-    
-    for(auto& [a, b] : v){
-        cout << a << ' ' << fixed << setprecision(4) << b << '\n';
+    for(const auto& [a, b] : m){
+        float ratio = (b / total) * 100.0;
+        cout << a << ' ' << fixed << setprecision(4) << ratio << '\n';
     }
 
     return 0;
