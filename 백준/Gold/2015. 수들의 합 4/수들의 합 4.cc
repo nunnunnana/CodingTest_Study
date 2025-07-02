@@ -1,30 +1,34 @@
 #include <iostream>
-#include <vector>
-#include <map>
+#include <unordered_map>
 using namespace std;
 
-int main()
-{
-    ios_base :: sync_with_stdio(false);
-    cin.tie(NULL);
-    cout.tie(NULL);
-    
-    int n, k;
-    cin >> n >> k;
-    
-    vector<int> a(n + 1);
-    map<long long, int> prefixCount;
-    prefixCount[0] = 1;  
-    long long sum = 0, answer = 0;
-    
-    for(int i = 0; i < n; i++) {
-        cin >> a[i];
-        sum += a[i];
-        answer += prefixCount[sum - k];
-        prefixCount[sum]++;
-    }
-    
-    cout << answer;
+int main() {
+    ios::sync_with_stdio(false); 
+    cin.tie(nullptr);
 
+    int N;
+    long long K;
+    cin >> N >> K;
+
+    long long sum = 0;
+    long long count = 0;
+    unordered_map<long long, int> prefixSumCount;
+
+    prefixSumCount[0] = 1;
+
+    for (int i = 0; i < N; i++) {
+        long long num;
+        cin >> num;
+
+        sum += num;
+
+        if (prefixSumCount.find(sum - K) != prefixSumCount.end()) {
+            count += prefixSumCount[sum - K];
+        }
+
+        prefixSumCount[sum]++;
+    }
+
+    cout << count << '\n';
     return 0;
 }
