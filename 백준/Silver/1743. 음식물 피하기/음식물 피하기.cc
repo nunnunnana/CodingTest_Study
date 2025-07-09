@@ -40,18 +40,18 @@ int main()
     int k;
     cin >> n >> m >> k;
     
-    graph.resize(n + 1, vector<int>(m + 1, 0));
-    vector<pair<int, int>> v;
+    graph.assign(n + 1, vector<int>(m + 1, 0));
     for(int i = 0; i < k; i++){
         int r, c;
         cin >> r >> c;
         graph[r][c] = 1;
-        v.push_back({r, c});
     }
     
     int result = 0;
-    for(int i = 0; i < k; i++){
-        result = max(result, bfs(v[i].first, v[i].second));
+    for(int i = 1; i <= n; i++) {
+        for(int j = 1; j <= m; j++) {
+            if(graph[i][j] == 1) result = max(result, bfs(i, j));
+        }
     }
     
     cout << result;
