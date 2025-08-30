@@ -1,10 +1,10 @@
 # [level 0] 홀짝 구분하기 - 181944 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/181944?language=java) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/181944?language=javascript) 
 
 ### 성능 요약
 
-메모리: 76.7 MB, 시간: 228.48 ms
+메모리: 32.4 MB, 시간: 48.43 ms
 
 ### 구분
 
@@ -16,7 +16,7 @@
 
 ### 제출 일자
 
-2025년 08월 30일 15:36:12
+2025년 08월 30일 15:37:04
 
 ### 문제 설명
 
