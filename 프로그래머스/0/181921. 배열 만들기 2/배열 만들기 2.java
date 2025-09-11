@@ -2,33 +2,15 @@ import java.util.*;
 
 class Solution {
     public int[] solution(int l, int r) {
-        List<Integer> result = new ArrayList<>();
-        Queue<String> queue = new LinkedList<>();
+        ArrayList<Integer> result = new ArrayList<>();
         
-        queue.add("5");
-        
-        while(!queue.isEmpty()){
-            String cur = queue.poll();
-            int num = Integer.parseInt(cur);
-            
-            if (num > r) continue;
-            
+        for(int i = 1; i < 64; i++){
+            int num = Integer.parseInt(Integer.toBinaryString(i)) * 5;
             if(num >= l && num <= r){
                 result.add(num);
             }
-            
-            if(num * 10 <= r){
-                queue.add(cur + "5");
-                queue.add(cur + "0");
-            }
         }
         
-        if (result.isEmpty()) {
-            return new int[]{-1};
-        }
-        
-        Collections.sort(result);
-        
-        return result.stream().mapToInt(Integer::intValue).toArray();
+        return result.isEmpty() ? new int[] { -1 } : result.stream().mapToInt(i -> i).toArray();
     }
 }
