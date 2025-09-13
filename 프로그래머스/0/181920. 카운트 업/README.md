@@ -1,10 +1,10 @@
 # [level 0] 카운트 업 - 181920 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/181920) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/181920?language=javascript) 
 
 ### 성능 요약
 
-메모리: 72.7 MB, 시간: 4.59 ms
+메모리: 33.5 MB, 시간: 0.06 ms
 
 ### 구분
 
@@ -16,7 +16,7 @@
 
 ### 제출 일자
 
-2025년 09월 13일 21:59:31
+2025년 09월 13일 22:04:31
 
 ### 문제 설명
 
