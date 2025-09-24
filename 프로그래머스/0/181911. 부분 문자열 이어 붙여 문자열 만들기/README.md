@@ -1,10 +1,10 @@
 # [level 0] 부분 문자열 이어 붙여 문자열 만들기 - 181911 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/181911) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/181911?language=javascript) 
 
 ### 성능 요약
 
-메모리: 85.1 MB, 시간: 2.40 ms
+메모리: 33.4 MB, 시간: 0.17 ms
 
 ### 구분
 
@@ -16,7 +16,7 @@
 
 ### 제출 일자
 
-2025년 09월 24일 22:44:47
+2025년 09월 24일 22:48:11
 
 ### 문제 설명
 
