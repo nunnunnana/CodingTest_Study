@@ -1,5 +1,4 @@
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 class Solution {
     public int[] solution(int[] arr) {
@@ -8,22 +7,13 @@ class Solution {
         for(int i = 0; i < arr.length; i++){
             if(arr[i] == 2){
                 if(min == -1) min = i;
-                else if(i > max) max = i;
+                max = i;
             }
         }
         
-        if(min == -1 && max == -1) list.add(-1);
-        else if(min > 0 && max == -1) list.add(arr[min]);
-        else{
-            for(int i = min; i <= max; i++){
-                list.add(arr[i]);
-            }
-        }
+        if(min == -1) return new int[]{-1};
         
-        int[] answer = new int[list.size()];
-        for(int i = 0 ; i < list.size() ; i++){
-            answer[i] = list.get(i).intValue();
-        }
-        return answer;
+        int[] result = Arrays.copyOfRange(arr, min, max + 1);
+        return result;
     }
 }
