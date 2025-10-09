@@ -1,10 +1,10 @@
 # [level 0] 배열 조각하기 - 181893 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/181893) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/181893?language=javascript) 
 
 ### 성능 요약
 
-메모리: 75.8 MB, 시간: 0.83 ms
+메모리: 36.8 MB, 시간: 2.36 ms
 
 ### 구분
 
@@ -16,7 +16,7 @@
 
 ### 제출 일자
 
-2025년 10월 09일 23:24:22
+2025년 10월 09일 23:27:12
 
 ### 문제 설명
 
