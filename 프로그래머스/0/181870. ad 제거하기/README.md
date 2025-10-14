@@ -1,10 +1,10 @@
 # [level 0] ad 제거하기 - 181870 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/181870) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/181870?language=javascript) 
 
 ### 성능 요약
 
-메모리: 76.8 MB, 시간: 0.94 ms
+메모리: 33.6 MB, 시간: 0.22 ms
 
 ### 구분
 
@@ -16,7 +16,7 @@
 
 ### 제출 일자
 
-2025년 10월 14일 11:15:53
+2025년 10월 14일 11:22:06
 
 ### 문제 설명
 
