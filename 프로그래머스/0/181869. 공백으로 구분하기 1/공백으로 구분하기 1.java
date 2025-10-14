@@ -1,0 +1,8 @@
+import java.util.ArrayList;
+import java.util.List;
+
+class Solution {
+    public String[] solution(String my_string) {
+        return my_string.split(" ");
+    }
+}
