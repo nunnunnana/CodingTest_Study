@@ -9,7 +9,6 @@ class Solution {
             list.add(strArr[i]);
         }
         
-        String[] array = list.toArray(new String[0]);
-        return array;
+        return list.toArray(new String[0]);
     }
 }
