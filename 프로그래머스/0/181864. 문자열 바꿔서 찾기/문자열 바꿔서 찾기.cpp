@@ -10,6 +10,5 @@ int solution(string myString, string pat) {
         else myString[i] = 'A';
     }
     
-    if(myString.find(pat) == string::npos) return 0;
-    else return 1;
+    return myString.find(pat) != string::npos;
 }
