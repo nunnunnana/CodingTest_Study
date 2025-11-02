@@ -1,10 +1,10 @@
 # [level 0] 배열의 길이를 2의 거듭제곱으로 만들기 - 181857 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/181857?language=cpp) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/181857?language=java) 
 
 ### 성능 요약
 
-메모리: 4.13 MB, 시간: 0.37 ms
+메모리: 89.7 MB, 시간: 0.03 ms
 
 ### 구분
 
@@ -16,7 +16,7 @@
 
 ### 제출 일자
 
-2025년 11월 02일 19:31:21
+2025년 11월 02일 19:38:10
 
 ### 문제 설명
 
