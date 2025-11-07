@@ -6,6 +6,5 @@ using namespace std;
 
 vector<int> solution(vector<int> num_list) {
     sort(num_list.begin(), num_list.end());
-    num_list.erase(num_list.begin() + 5, num_list.end());
-    return num_list;
+    return {num_list.begin(), num_list.begin() + 5};
 }
