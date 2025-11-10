@@ -1,10 +1,10 @@
 # [level 0] 정수 부분 - 181850 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/181850?language=cpp) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/181850?language=java) 
 
 ### 성능 요약
 
-메모리: 4.13 MB, 시간: 0.01 ms
+메모리: 80.5 MB, 시간: 0.03 ms
 
 ### 구분
 
@@ -16,7 +16,7 @@
 
 ### 제출 일자
 
-2025년 11월 10일 20:44:41
+2025년 11월 10일 20:45:38
 
 ### 문제 설명
 
