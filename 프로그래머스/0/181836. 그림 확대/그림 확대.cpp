@@ -5,18 +5,12 @@ using namespace std;
 
 vector<string> solution(vector<string> picture, int k) {
     vector<string> answer;
-    answer.reserve(picture.size() * k);
-
-    for (auto& row : picture) {
-        string expanded = "";
-
-        for (char c : row) {
-            expanded.append(k, c);
+    for(int i = 0; i < k * picture.size(); i++){
+        string str = "";
+        for(int j = 0; j < k * picture[0].size(); j++){
+            str += picture[i / k][j / k];
         }
-
-        for (int i = 0; i < k; i++) {
-            answer.push_back(expanded);
-        }
+        answer.push_back(str);
     }
     return answer;
 }
