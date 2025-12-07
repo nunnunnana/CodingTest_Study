@@ -1,6 +1,6 @@
 # [level 0] 정사각형으로 만들기 - 181830 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/181830?language=cpp) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/181830?language=java) 
 
 ### 성능 요약
 
@@ -16,7 +16,7 @@
 
 ### 제출 일자
 
-2025년 12월 07일 21:51:59
+2025년 12월 07일 21:52:50
 
 ### 문제 설명
 
