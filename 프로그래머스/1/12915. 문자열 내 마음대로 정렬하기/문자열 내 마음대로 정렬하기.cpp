@@ -1,21 +1,14 @@
 #include <string>
 #include <vector>
-#include <map>
-#include <set>
+#include <algorithm>
 
 using namespace std;
 
 vector<string> solution(vector<string> strings, int n) {
     vector<string> answer;
-    map<char, set<string>> m;
-    for(int i = 0; i < strings.size(); i++){
-        m[strings[i][n]].insert(strings[i]);
-    }
-
-    for (const auto& pair : m) {
-        for (const auto& s : pair.second) {
-            answer.push_back(s);
-        }
-    }
-    return answer;
+    sort(strings.begin(), strings.end(), 
+         [n] (const string& a, const string& b){
+            return a[n] == b[n] ? a < b : a[n] < b[n];
+         });
+    return strings;
 }
