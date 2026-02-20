@@ -12,7 +12,7 @@ int solution(int number, int limit, int power) {
                 j * j == i ? count++ : count += 2;
             }
         }
-        answer = count > limit ? answer + power : answer + count;
+        answer += count > limit ? power : count;
     }
     return answer;
 }
