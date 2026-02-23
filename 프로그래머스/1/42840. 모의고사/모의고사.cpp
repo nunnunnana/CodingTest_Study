@@ -1,6 +1,5 @@
 #include <string>
 #include <vector>
-#include <algorithm>
 
 using namespace std;
 
@@ -28,6 +27,5 @@ vector<int> solution(vector<int> answers) {
             answer.push_back(i + 1);
         }
     }
-    sort(answer.begin(), answer.end());
     return answer;
 }
